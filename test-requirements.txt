@@ -1,0 +1,5 @@
+ipdb>=0.12.3
+ipython>=7.10.1
+pycodestyle>=2.5.0
+pylint>=2.4.4
+q>=2.6
