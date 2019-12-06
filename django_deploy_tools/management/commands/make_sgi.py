@@ -2,12 +2,13 @@ import os
 import sys
 import warnings
 
+import six
+
 from django.core.management import base
 from django.template.loader import get_template
 
 from django_deploy_tools import utils
 
-import six
 
 # Suppress Warnings which could clutter the output to the point of
 # rendering it unreadable.
@@ -59,7 +60,7 @@ class Command(base.BaseCommand):
         sgi_group.add_argument(
             "-a", "--asgi",
             default=None, action="store_true",
-            help="Output as asgi file."
+            help="Output as asgi file (Python 3 only)."
         )
         sgi_group.add_argument(
             "-w", "--wsgi",
