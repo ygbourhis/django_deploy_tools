@@ -7,6 +7,8 @@ from django.template.loader import get_template
 
 from django_deploy_tools import utils
 
+import six
+
 # Suppress Warnings which could clutter the output to the point of
 # rendering it unreadable.
 warnings.simplefilter('ignore')
@@ -17,6 +19,8 @@ context = {
     'ACTIVATE_THIS': None,
     'DJANGO_SETTINGS_MODULE': utils.DJANGO_SETTINGS_MODULE,
     'PROJECT_ROOT': os.path.dirname(utils.SUPPOSED_PROJECT_PATH),
+    'PY2': six.PY2,
+    'PY3': six.PY3,
     'PYTHON_EXEC': sys.executable,
 }
 
