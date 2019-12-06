@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class DjDeployToolsConfig(AppConfig):
+class DjangoDeployToolsConfig(AppConfig):
     name = 'django_deploy_tools'
