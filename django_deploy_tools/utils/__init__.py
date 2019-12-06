@@ -1,8 +1,15 @@
 from importlib import import_module
 import os
+import re
+import socket
+import subprocess
 
+import six
 
 DJANGO_SETTINGS_MODULE = os.environ['DJANGO_SETTINGS_MODULE']
+
+# Default log directory
+DEFAULT_LOG_DIR = '/var/log'
 
 SUPPOSED_PROJECT_PATH = os.path.realpath(
         os.path.dirname(import_module(DJANGO_SETTINGS_MODULE).__file__)
