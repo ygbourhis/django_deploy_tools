@@ -44,10 +44,24 @@ if virtualenv:
 class Command(base.BaseCommand):
 
     args = ''
-    help = """Create a wsgi file with automatic python virtualenv activation.
+    help = """Create a wsgi (default) or asgi file with automatic python
+    virtualenv activation.
     """
 
     def add_arguments(self, parser):
+        sgi_group = parser.add_mutually_exclusive_group()
+
+        sgi_group.add_argument(
+            "-a", "--asgi",
+            default=None, action="store_true",
+            help="Output as asgi file."
+        )
+        sgi_group.add_argument(
+            "-w", "--wsgi",
+            default=None, action="store_true",
+            help="Output as wsgi file (default)."
+        )
+
         parser.add_argument(
             "-f", "--force",
             default=False, action="store_true", dest="force",
@@ -55,7 +69,7 @@ class Command(base.BaseCommand):
         )
         parser.add_argument(
             "-o", "--out",
-            help="wsgi output file."
+            help="sgi output file."
         )
         parser.add_argument(
             "-p", "--path",
@@ -72,11 +86,17 @@ class Command(base.BaseCommand):
     def handle(self, *args, **options):
         force = options.get('force')
         out_file = options.get('out')
+        context['SGI'] = 'wsgi'
+        for wsgi_type in (
+            'asgi', 'wsgi'
+        ):
+            if options[wsgi_type] is not None:
+                context['SGI'] = wsgi_type
         if options.get('path'):
             context['PROJECT_ROOT'] = options['path']
         if context['PROJECT_ROOT'] in sys.path or options['no_path']:
             context['PROJECT_ROOT'] = None
-        wsgi_template = get_template('django_deploy_tools/wsgi.py')
+        wsgi_template = get_template('django_deploy_tools/sgi.py')
         rendered_wsgi = wsgi_template.render(context)
 
         # Generate the WSGI.
