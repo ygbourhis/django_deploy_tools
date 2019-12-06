@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!{{ PYTHON_EXEC }}
 import os
 import sys
 {% if ACTIVATE_THIS %}

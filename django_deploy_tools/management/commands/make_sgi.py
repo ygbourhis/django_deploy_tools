@@ -14,9 +14,10 @@ warnings.simplefilter('ignore')
 cmd_name = utils.get_cmd_name(__name__)
 
 context = {
+    'ACTIVATE_THIS': None,
     'DJANGO_SETTINGS_MODULE': utils.DJANGO_SETTINGS_MODULE,
     'PROJECT_ROOT': os.path.dirname(utils.SUPPOSED_PROJECT_PATH),
-    'ACTIVATE_THIS': None
+    'PYTHON_EXEC': sys.executable,
 }
 
 path_help = "Project path: Insert project path if not on sys.path"
