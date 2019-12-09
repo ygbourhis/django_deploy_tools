@@ -1,16 +1,12 @@
-========================
-Django Deployement Tools
-========================
+# Django Deployement Tools
 
-Tools to help deploy a django application
+Tools to help deploy a django application.
 
-INSTALLATION:
-=============
+## INSTALLATION:
 
-    pip install .
+    pip install Django-Deployment-Tools
 
-CONFIGURATION:
-==============
+## CONFIGURATION:
 
 Add `'django_deploy_tools',` in your `settings.INSTALLED_APPS`.
 
@@ -21,8 +17,7 @@ See <https://docs.djangoproject.com/en/3.0/ref/settings/#static-files>,
 <https://docs.djangoproject.com/en/3.0/howto/static-files/> for more
 details.
 
-USAGE:
-======
+## USAGE:
 
 First collect static files:
 
