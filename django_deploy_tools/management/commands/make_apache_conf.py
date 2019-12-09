@@ -240,7 +240,7 @@ example:
             if not os.path.exists(out_file) or force:
                 with open(out_file, 'w') as fp:
                     fp.write(rendered_conf)
-                print('Generated "%s"' % out_file)
+                print('Generated "%s"' % out_file)  # pylint: disable=C0325
             else:
                 sys.exit('"%s" already exists, use --force to overwrite' %
                          out_file)
