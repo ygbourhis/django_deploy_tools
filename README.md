@@ -44,3 +44,18 @@ For more information check :
 Especially to define the proper ssl certificates. If not specified when
 creating the configuration file you will have to edit the generated apache
 configuration.
+
+## DEVELOPMENT:
+
+If you want to contribute, deployement commands are to be added in the
+
+`management/commands` directory:
+<https://github.com/ygbourhis/django_deploy_tools/tree/master/django_deploy_tools/management/commands>
+As per the django documentation:
+<https://docs.djangoproject.com/en/dev/howto/custom-management-commands/>
+And configuration templates used by the commands are put in the `templates/django_deploy_tools`directory:
+<https://github.com/ygbourhis/django_deploy_tools/tree/master/django_deploy_tools/templates/django_deploy_tools>
+Then, before adding a pull request, run the `check_code` script to check coding rules
+
+TODO: Add unittests.
+
