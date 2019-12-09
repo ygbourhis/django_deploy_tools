@@ -23,9 +23,9 @@ jobs:
         pip install -r requirements.txt
         pip install -r test-requirements.txt
         pip install -e .
-    - name: Lint with flake8
+    - name: Lint with pycodestyle
       run: |
         python -m pycodestyle django_deploy_tools
-    - name: Test with pytest
+    - name: Check with pylint
       run: |
         python -m pylint --rcfile=pylintrc --reports=yes django_deploy_tools
